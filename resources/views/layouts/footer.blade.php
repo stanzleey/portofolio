@@ -40,7 +40,7 @@
                             <li><span class="icon fa fa-map marker"></span><span class="text">203 Fake St. Mountain View, San Francisco, California, USA</span></li>
                             <li><a href="#"><span class="icon fa fa-phone"></span><span class="text">+2 392 3929 210</span></a></li>
                             <li><a href="#"><span class="icon fa fa-paper-plane pr-4"></span><span class="text">info@yourdomain.com</span></a></li>
-                        </ul>
+                        </ul>awawddad
                     </div>
                     <ul class="ftco-footer-social list-unstyled mt-2">
                         <li class="ftco-animate"><a href="#"><span class="fa fa-twitter"></span></a></li>
