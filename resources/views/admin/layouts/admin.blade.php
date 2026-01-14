@@ -6,6 +6,7 @@
     <title>@yield('title', 'Admin Panel')</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    
     <style>
         * {
             margin: 0;
@@ -206,8 +207,8 @@
                    <a href="{{ route('admin.keahlian.index') }}" class="@if(request()->routeIs('admin.users.*')) active @endif">
                     <i class="bi bi-people"></i> Kelola Keahlian
                 </a>
-                   <a href="{{ route('admin.users.index') }}" class="@if(request()->routeIs('admin.users.*')) active @endif">
-                    <i class="bi bi-people"></i> Kelola User
+                   <a href="{{ route('admin.layanan.index') }}" class="@if(request()->routeIs('admin.layanan.*')) active @endif">
+                    <i class="bi bi-people"></i> Kelola Layanan
                 </a>
                 <hr style="border-color: rgba(255,255,255,0.2)">
                 <form action="{{ route('logout') }}" method="POST" style="padding: 0;">

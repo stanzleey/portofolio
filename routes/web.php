@@ -4,8 +4,12 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\Admin\KeahlianController as AdminKeahlianController;
+use App\Http\Controllers\Admin\LayananController;
+
 use App\Http\Controllers\Admin\TentangController;
-use App\Http\Controllers\Admin\KeahlianController;
+use App\Http\Controllers\KeahlianController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,11 +24,11 @@ use App\Http\Controllers\Admin\KeahlianController;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/keahlian', function () {
-    return view('keahlian.index');
+Route::get('/layanan', function () {
+    return view('layanan.index');
 });
 Route::resource('/tentang', AboutController::class);
-
+Route::resource('/keahlian', KeahlianController::class);
 // Auth Routes
 Route::get('/login', [AuthController::class, 'showLogin'])->name('login')->middleware('guest');
 Route::post('/login', [AuthController::class, 'login'])->name('login.submit')->middleware('guest');
@@ -37,7 +41,8 @@ Route::middleware(['auth', 'is_admin'])->prefix('admin')->name('admin.')->group(
     Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
     Route::resource('users', AdminController::class);
     Route::resource('tentang', TentangController::class);
-    Route::resource('keahlian', KeahlianController::class);
+    Route::resource('keahlian', AdminKeahlianController::class);
+    Route::resource('layanan', LayananController::class);
 });
 
 
