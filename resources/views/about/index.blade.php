@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-
+ @foreach($tentang as $index => $tentang)
 	<section class="ftco-about ftco-section ftco-no-pt ftco-no-pb" id="about-section">
 		<div class="container">
 			<div class="row d-flex no-gutters">
@@ -22,15 +22,14 @@
 							<div class="col-md-12 heading-section ftco-animate">
 								<span class="subheading">My Intro</span>
 								<h2 class="mb-4" style="font-size: 34px; text-transform: capitalize;">About Me</h2>
-								<p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
+								<p>{{ $tentang->deskripsi }}</p>
 
 								<ul class="about-info mt-4 px-md-0 px-2">
-									<li class="d-flex"><span>Name:</span> <span>Clyde Nowitzki</span></li>
-									<li class="d-flex"><span>Date of birth:</span> <span>January 01, 1990</span></li>
-									<li class="d-flex"><span>Address:</span> <span>San Francisco CA 97987 USA</span></li>
-									<li class="d-flex"><span>Zip code:</span> <span>1000</span></li>
-									<li class="d-flex"><span>Email:</span> <span>cydenowitzki@gmail.com</span></li>
-									<li class="d-flex"><span>Phone: </span> <span>+1-2234-5678-9-0</span></li>
+									<li class="d-flex"><span>Name:</span> <span>{{ $tentang->nama }}</span></li>
+									<li class="d-flex"><span>Date of birth:</span> <span>{{ $tentang->tempat_tanggal_lahir }}</span></li>
+									<li class="d-flex"><span>Address:</span> <span>{{ $tentang->tempat_tinggal }}</span></li>
+									<li class="d-flex"><span>Email:</span> <span>{{ $tentang->email }}</span></li>
+									<li class="d-flex"><span>Phone: </span> <span>{{ $tentang->no_hp }}</span></li>
 								</ul>
 							</div>
 							<div class="col-md-12">
@@ -67,7 +66,7 @@
 			</div>
 		</div>
 	</section>
-	
+	    @endforeach
 		@endsection
 
 @section('scripts')

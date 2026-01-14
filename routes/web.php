@@ -3,7 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AdminController;
-
+use App\Http\Controllers\AboutController;
+use App\Http\Controllers\Admin\TentangController;
+use App\Http\Controllers\Admin\KeahlianController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,9 +20,10 @@ use App\Http\Controllers\AdminController;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/tentang', function () {
-    return view('about.index');
+Route::get('/keahlian', function () {
+    return view('keahlian.index');
 });
+Route::resource('/tentang', AboutController::class);
 
 // Auth Routes
 Route::get('/login', [AuthController::class, 'showLogin'])->name('login')->middleware('guest');
@@ -33,5 +36,9 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout')->middl
 Route::middleware(['auth', 'is_admin'])->prefix('admin')->name('admin.')->group(function () {
     Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
     Route::resource('users', AdminController::class);
+    Route::resource('tentang', TentangController::class);
+    Route::resource('keahlian', KeahlianController::class);
 });
+
+
 
