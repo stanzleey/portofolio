@@ -12,6 +12,7 @@ use App\Http\Controllers\Admin\TentangController;
 use App\Http\Controllers\KeahlianController;
 use App\Http\Controllers\KontakController as ControllersKontakController;
 use App\Http\Controllers\LayananController as ControllersLayananController;
+use App\Http\Controllers\ProjekController as ControllersProjekController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,9 +28,9 @@ use App\Http\Controllers\LayananController as ControllersLayananController;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/projek', function () {
-    return view('projek.index');
-});
+// Route::get('/projek', function () {
+//     return view('projek.index');
+// });
 // Route::get('/kontak', function () {
 //     return view('kontak.index');
 // });
@@ -39,6 +40,7 @@ Route::post('/kontak', [ControllersKontakController::class, 'store'])->name('kon
 Route::resource('/tentang', AboutController::class);
 Route::resource('/keahlian', KeahlianController::class);
 Route::resource('/layanan', ControllersLayananController::class);
+Route::resource('/projek', ControllersProjekController::class);
 // Route::resource('/kontak', ControllersKontakController::class);
 // Auth Routes
 Route::get('/login', [AuthController::class, 'showLogin'])->name('login')->middleware('guest');

@@ -6,6 +6,7 @@
     <title>@yield('title', 'Admin Panel')</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.32/dist/sweetalert2.min.css">
     
     <style>
         * {
@@ -277,6 +278,34 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.32/dist/sweetalert2.all.min.js"></script>
+    
+    @if (session('success'))
+    <script>
+        Swal.fire({
+            title: 'Sukses!',
+            text: "{{ session('success') }}",
+            icon: 'success',
+            confirmButtonColor: '#667eea',
+            timer: 2500,
+            timerProgressBar: true
+        });
+    </script>
+    @endif
+
+    @if (session('error'))
+    <script>
+        Swal.fire({
+            title: 'Gagal!',
+            text: "{{ session('error') }}",
+            icon: 'error',
+            confirmButtonColor: '#dc3545',
+            timer: 3000,
+            timerProgressBar: true
+        });
+    </script>
+    @endif
+
     @yield('scripts')
 </body>
 </html>

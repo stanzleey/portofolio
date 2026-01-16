@@ -80,10 +80,10 @@
                     </div>
 
                     <div class="mt-4">
-                        <a href="{{ route('keahlians.index') }}" class="btn btn-secondary">
+                        <a href="{{ route('admin.keahlian.index') }}" class="btn btn-secondary">
                             <i class="fas fa-arrow-left"></i> Kembali ke Daftar
                         </a>
-                        <a href="{{ route('keahlians.edit', $keahlian->id) }}" class="btn btn-warning">
+                        <a href="{{ route('admin.keahlian.edit', $keahlian->id) }}" class="btn btn-warning">
                             <i class="fas fa-edit"></i> Edit
                         </a>
                     </div>
