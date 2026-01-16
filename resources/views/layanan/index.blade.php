@@ -17,86 +17,29 @@
         </div>
 
         <div class="row">
+            @forelse($layanans as $layanan)
             <div class="col-md-6 col-lg-3">
                 <div class="media block-6 services d-block bg-white rounded-lg shadow ftco-animate">
-                    <div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-3d-design"></span></div>
+                    <div class="icon d-flex align-items-center justify-content-center">
+                        <!-- Ganti span dengan icon dari database -->
+                        <i class="{{ $layanan->icon }} fa-2x"></i>
+                    </div>
                     <div class="media-body">
-                        <h3 class="heading mb-3">Web Design</h3>
-                        <p>A small river named Duden flows by their place and supplies.</p>
+                        <h3 class="heading mb-3">{{ $layanan->judul }}</h3>
+                        <p>{{ $layanan->deskripsi }}</p>
                     </div>
                 </div> 
             </div>
-            <div class="col-md-6 col-lg-3">
-                <div class="media block-6 services d-block bg-white rounded-lg shadow ftco-animate">
-                    <div class="icon shadow d-flex align-items-center justify-content-center"><span class="flaticon-app-development"></span></div>
-                    <div class="media-body">
-                        <h3 class="heading mb-3">Web Application</h3>
-                        <p>A small river named Duden flows by their place and supplies.</p>
-                    </div>
-                </div> 
+            @empty
+            <div class="col-12 text-center">
+                <p class="text-muted">Belum ada layanan tersedia.</p>
             </div>
-            <div class="col-md-6 col-lg-3">
-                <div class="media block-6 services d-block bg-white rounded-lg shadow ftco-animate">
-                    <div class="icon shadow d-flex align-items-center justify-content-center"><span class="flaticon-web-programming"></span></div>
-                    <div class="media-body">
-                        <h3 class="heading mb-3">Web Development</h3>
-                        <p>A small river named Duden flows by their place and supplies.</p>
-                    </div>
-                </div> 
-            </div>
-            <div class="col-md-6 col-lg-3">
-                <div class="media block-6 services d-block bg-white rounded-lg shadow ftco-animate">
-                    <div class="icon shadow d-flex align-items-center justify-content-center"><span class="flaticon-branding"></span></div>
-                    <div class="media-body">
-                        <h3 class="heading mb-3">Banner Design</h3>
-                        <p>A small river named Duden flows by their place and supplies.</p>
-                    </div>
-                </div> 
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-6 col-lg-3">
-                <div class="media block-6 services d-block bg-white rounded-lg shadow ftco-animate">
-                    <div class="icon shadow d-flex align-items-center justify-content-center"><span class="flaticon-computer"></span></div>
-                    <div class="media-body">
-                        <h3 class="heading mb-3">Branding</h3>
-                        <p>A small river named Duden flows by their place and supplies.</p>
-                    </div>
-                </div> 
-            </div>
-            <div class="col-md-6 col-lg-3">
-                <div class="media block-6 services d-block bg-white rounded-lg shadow ftco-animate">
-                    <div class="icon shadow d-flex align-items-center justify-content-center"><span class="flaticon-vector"></span></div>
-                    <div class="media-body">
-                        <h3 class="heading mb-3">Icon Design</h3>
-                        <p>A small river named Duden flows by their place and supplies.</p>
-                    </div>
-                </div> 
-            </div>
-            <div class="col-md-6 col-lg-3">
-                <div class="media block-6 services d-block bg-white rounded-lg shadow ftco-animate">
-                    <div class="icon shadow d-flex align-items-center justify-content-center"><span class="flaticon-vector"></span></div>
-                    <div class="media-body">
-                        <h3 class="heading mb-3">Graphic Design</h3>
-                        <p>A small river named Duden flows by their place and supplies.</p>
-                    </div>
-                </div> 
-            </div>
-            <div class="col-md-6 col-lg-3">
-                <div class="media block-6 services d-block bg-white rounded-lg shadow ftco-animate">
-                    <div class="icon shadow d-flex align-items-center justify-content-center"><span class="flaticon-zoom"></span></div>
-                    <div class="media-body">
-                        <h3 class="heading mb-3">SEO</h3>
-                        <p>A small river named Duden flows by their place and supplies.</p>
-                    </div>
-                </div> 
-            </div>
+            @endforelse
         </div>
     </div>
 </section>
 	 
-		@endsection
+@endsection
 
 @section('scripts')
     <!-- Script tambahan untuk halaman welcome jika ada -->

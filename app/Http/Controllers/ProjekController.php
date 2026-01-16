@@ -2,18 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Layanan;
 use Illuminate\Http\Request;
 
-class LayananController extends Controller
+class ProjekController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-      public function index()
+    public function index()
     {
-        $layanans = Layanan::latest()->paginate(10);
-        return view('layanan.index', compact('layanans'));
+        //
     }
 
     /**

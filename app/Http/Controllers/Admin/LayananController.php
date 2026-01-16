@@ -31,19 +31,14 @@ class LayananController extends Controller
 
         Layanan::create($request->all());
 
-        return redirect()->route('layanans.index')
+        return redirect()->route('admin.layanan.index')
             ->with('success', 'Layanan berhasil ditambahkan.');
-    }
-
-    public function show(Layanan $layanan)
-    {
-        return view('admin.layanan.show', compact('layanan'));
     }
 
     public function edit(Layanan $layanan)
     {
         $icons = $this->getAvailableIcons();
-        return view('layanans.edit', compact('layanan', 'icons'));
+        return view('admin.layanan.edit', compact('layanan', 'icons'));
     }
 
     public function update(Request $request, Layanan $layanan)
@@ -56,7 +51,7 @@ class LayananController extends Controller
 
         $layanan->update($request->all());
 
-        return redirect()->route('layanans.index')
+        return redirect()->route('admin.layanan.index')
             ->with('success', 'Layanan berhasil diperbarui.');
     }
 
@@ -64,7 +59,7 @@ class LayananController extends Controller
     {
         $layanan->delete();
 
-        return redirect()->route('layanans.index')
+        return redirect()->route('admin.layanan.index')
             ->with('success', 'Layanan berhasil dihapus.');
     }
 

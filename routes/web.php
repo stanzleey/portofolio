@@ -5,10 +5,13 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\Admin\KeahlianController as AdminKeahlianController;
+use App\Http\Controllers\Admin\KontakController;
 use App\Http\Controllers\Admin\LayananController;
-
+use App\Http\Controllers\Admin\ProjekController;
 use App\Http\Controllers\Admin\TentangController;
 use App\Http\Controllers\KeahlianController;
+use App\Http\Controllers\KontakController as ControllersKontakController;
+use App\Http\Controllers\LayananController as ControllersLayananController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,11 +27,19 @@ use App\Http\Controllers\KeahlianController;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/layanan', function () {
-    return view('layanan.index');
+Route::get('/projek', function () {
+    return view('projek.index');
 });
+// Route::get('/kontak', function () {
+//     return view('kontak.index');
+// });
+Route::get('/kontak', [ControllersKontakController::class, 'create'])->name('kontak.create');
+Route::post('/kontak', [ControllersKontakController::class, 'store'])->name('kontak.store');
+
 Route::resource('/tentang', AboutController::class);
 Route::resource('/keahlian', KeahlianController::class);
+Route::resource('/layanan', ControllersLayananController::class);
+// Route::resource('/kontak', ControllersKontakController::class);
 // Auth Routes
 Route::get('/login', [AuthController::class, 'showLogin'])->name('login')->middleware('guest');
 Route::post('/login', [AuthController::class, 'login'])->name('login.submit')->middleware('guest');
@@ -43,6 +54,8 @@ Route::middleware(['auth', 'is_admin'])->prefix('admin')->name('admin.')->group(
     Route::resource('tentang', TentangController::class);
     Route::resource('keahlian', AdminKeahlianController::class);
     Route::resource('layanan', LayananController::class);
+    Route::resource('projek', ProjekController::class);
+    Route::resource('/kontak', KontakController::class);
 });
 
 

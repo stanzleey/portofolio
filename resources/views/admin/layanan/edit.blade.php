@@ -10,7 +10,7 @@
         </h5>
     </div>
     <div class="card-body">
-        <form action="{{ route('layanans.update', $layanan) }}" method="POST">
+        <form action="{{ route('admin.layanan.update', $layanan) }}" method="POST">
             @csrf
             @method('PUT')
             
@@ -85,7 +85,7 @@
             </div>
 
             <div class="d-flex justify-content-between">
-                <a href="{{ route('layanans.index') }}" class="btn btn-secondary">
+                <a href="{{ route('admin.layanan.index') }}" class="btn btn-secondary">
                     <i class="fas fa-arrow-left me-2"></i>Kembali
                 </a>
                 <button type="submit" class="btn btn-primary">

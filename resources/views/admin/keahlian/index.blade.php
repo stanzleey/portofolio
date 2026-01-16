@@ -5,10 +5,11 @@
 
 @section('content')
 <div class="page-header">
-    <h1>Kelola Keahlian</h1>
-    <a href="{{ route('admin.keahlian.create') }}" class="btn btn-primary">
+    <h1> <a href="{{ route('admin.keahlian.create') }}" class="btn btn-primary">
         <i class="bi bi-plus-circle"></i> Tambah Keahlian Baru
     </a>
+</h1>
+   
 </div>
 
 @if(session('success'))
@@ -22,12 +23,6 @@
     <div class="card-header">
         <div class="d-flex justify-content-between align-items-center">
             <span>Daftar Keahlian</span>
-            <div class="input-group" style="width: 300px;">
-                <input type="text" class="form-control" placeholder="Cari keahlian...">
-                <button class="btn btn-outline-secondary" type="button">
-                    <i class="bi bi-search"></i>
-                </button>
-            </div>
         </div>
     </div>
 
@@ -67,7 +62,7 @@
                             <a href="{{ route('admin.keahlian.edit', $keahlian->id) }}" class="btn btn-outline-warning" title="Edit">
                                 <i class="bi bi-pencil"></i>
                             </a>
-                            <form action="{{ route('admin.keahlian.destroy', $keahlian->id) }}" method="POST" style="display:inline;" onsubmit="return confirm('Yakin ingin menghapus keahlian ini?');">
+                            <form action="{{ route('admin.keahlian.destroy', $keahlian->id) }}" method="POST" style="display:inline;" onsubmit="return confirmDelete(this);">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-outline-danger" title="Hapus">

@@ -5,7 +5,7 @@
 
 @section('content')
 <div class="page-header">
-    <h1>Dashboard</h1>
+
 </div>
 
 <!-- Statistics Cards -->
@@ -28,10 +28,46 @@
             </div>
         </div>
     </div>
+     <div class="col-md-6 col-lg-4">
+        <div class="card">
+            <div class="card-body text-center">
+                <i class="bi bi-info-circle" style="font-size: 32px; color: #4299e1;"></i>
+                <h5 class="mt-3 mb-1">Total Tentang</h5>
+                <h2 class="mb-0">{{ $totalTentang }}</h2>
+            </div>
+        </div>
+    </div>
     <div class="col-md-6 col-lg-4">
         <div class="card">
             <div class="card-body text-center">
-                <i class="bi bi-graph-up" style="font-size: 32px; color: #06b6d4;"></i>
+                <i class="bi bi-tools" style="font-size: 32px; color: #38b2ac;"></i>
+                <h5 class="mt-3 mb-1">Total Keahlian</h5>
+                <h2 class="mb-0">{{ $totalKeahlians }}</h2>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 col-lg-4">
+        <div class="card">
+            <div class="card-body text-center">
+                <i class="bi bi-hand-thumbs-up" style="font-size: 32px; color: #ed8936;"></i>
+                <h5 class="mt-3 mb-1">Total Layanan</h5>
+                <h2 class="mb-0">{{ $totalLayanans}}</h2>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 col-lg-4">
+        <div class="card">
+            <div class="card-body text-center">
+                <i class="bi bi-briefcase" style="font-size: 32px; color: #9f7aea;"></i>
+                <h5 class="mt-3 mb-1">Total Projek</h5>
+                <h2 class="mb-0">{{ $totalProjek }}</h2>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 col-lg-4">
+        <div class="card">
+            <div class="card-body text-center">
+                <i class="bi bi-person" style="font-size: 32px; color: #48bb78;"></i>
                 <h5 class="mt-3 mb-1">Regular Users</h5>
                 <h2 class="mb-0">{{ $totalUsers - $totalAdmins }}</h2>
             </div>

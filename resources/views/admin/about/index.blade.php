@@ -5,10 +5,10 @@
 
 @section('content')
 <div class="page-header">
-    <h1>Kelola Tentang</h1>
-    <a href="{{ route('admin.tentang.create') }}" class="btn btn-primary">
+    <h1><a href="{{ route('admin.tentang.create') }}" class="btn btn-primary">
         <i class="bi bi-plus-circle"></i> Tambah Data Baru
-    </a>
+    </a></h1>
+    
 </div>
 
 <div class="card">

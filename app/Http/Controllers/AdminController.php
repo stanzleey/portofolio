@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Keahlian;
+use App\Models\Layanan;
+use App\Models\Projek;
+use App\Models\Tentang;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -14,12 +18,22 @@ class AdminController extends Controller
     public function dashboard()
     {
         $totalUsers = User::count();
+        $totalTentang = Tentang::count();
+        $totalKeahlians = Keahlian::count();
+        $totalProjek = Projek::count();
+         $totalLayanans = Layanan::count();
+        
         $totalAdmins = User::where('role', 'admin')->count();
         $recentUsers = User::latest()->take(5)->get();
 
         return view('admin.dashboard', [
             'totalUsers' => $totalUsers,
             'totalAdmins' => $totalAdmins,
+            'totalTentang' => $totalTentang,
+            'totalKeahlians' => $totalKeahlians,
+            'totalLayanans' => $totalLayanans,
+
+            'totalProjek' => $totalProjek,
             'recentUsers' => $recentUsers,
         ]);
     }

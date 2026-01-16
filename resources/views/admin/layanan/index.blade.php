@@ -5,22 +5,17 @@
 
 @section('content')
 <div class="page-header">
-    <h1>Daftar Layanan</h1>
-    <a href="{{ route('admin.layanan.create') }}" class="btn btn-primary">
+    <h1><a href="{{ route('admin.layanan.create') }}" class="btn btn-primary">
         <i class="bi bi-plus-circle"></i> Tambah Layanan
-    </a>
+    </a></h1>
+    
 </div>
 
 <div class="card">
     <div class="card-header">
         <div class="d-flex justify-content-between align-items-center">
             <span>Daftar Data Layanan</span>
-            <div class="input-group" style="width: 300px;">
-                <input type="text" class="form-control" placeholder="Cari data...">
-                <button class="btn btn-outline-secondary" type="button">
-                    <i class="bi bi-search"></i>
-                </button>
-            </div>
+          
         </div>
     </div>
 
@@ -41,7 +36,13 @@
                 <tr>
                     <td>{{ $index + 1 }}</td>
                     <td>
-                        <i class="{{ $layanan->icon }}"></i>
+                        @if($layanan->icon)
+                            <span style="font-size: 20px; color: #667eea;">
+                                <i class="{{ $layanan->icon }}"></i>
+                            </span>
+                        @else
+                            <span class="badge bg-secondary">No Icon</span>
+                        @endif
                     </td>
                     <td>
                         <strong>{{ $layanan->judul }}</strong>
@@ -50,13 +51,10 @@
                     <td>{{ $layanan->created_at->format('d/m/Y') }}</td>
                     <td>
                         <div class="btn-group btn-group-sm" role="group">
-                            <a href="{{ route('admin.layanan.show', $layanan) }}" class="btn btn-outline-primary" title="Lihat">
-                                <i class="bi bi-eye"></i>
-                            </a>
                             <a href="{{ route('admin.layanan.edit', $layanan) }}" class="btn btn-outline-warning" title="Edit">
                                 <i class="bi bi-pencil"></i>
                             </a>
-                            <form action="{{ route('admin.layanan.destroy', $layanan) }}" method="POST" style="display:inline;" onsubmit="return confirm('Yakin ingin menghapus data ini?');">
+                            <form action="{{ route('admin.layanan.destroy', $layanan) }}" method="POST" style="display:inline;" onsubmit="return confirmDelete(this);">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-outline-danger" title="Hapus">

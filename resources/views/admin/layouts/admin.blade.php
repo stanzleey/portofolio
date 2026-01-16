@@ -201,14 +201,21 @@
                 <a href="{{ route('admin.users.index') }}" class="@if(request()->routeIs('admin.users.*')) active @endif">
                     <i class="bi bi-people"></i> Kelola User
                 </a>
-                   <a href="{{ route('admin.tentang.index') }}" class="@if(request()->routeIs('admin.users.*')) active @endif">
-                    <i class="bi bi-people"></i> Kelola Tentang
+                   <a href="{{ route('admin.tentang.index') }}" class="@if(request()->routeIs('admin.tentang.*')) active @endif">
+                    <i class="bi bi-book"></i> Kelola Tentang
                 </a>
-                   <a href="{{ route('admin.keahlian.index') }}" class="@if(request()->routeIs('admin.users.*')) active @endif">
-                    <i class="bi bi-people"></i> Kelola Keahlian
+                   <a href="{{ route('admin.keahlian.index') }}" class="@if(request()->routeIs('admin.keahlian.*')) active @endif">
+                    <i class="bi bi-tools"></i> Kelola Keahlian
                 </a>
                    <a href="{{ route('admin.layanan.index') }}" class="@if(request()->routeIs('admin.layanan.*')) active @endif">
-                    <i class="bi bi-people"></i> Kelola Layanan
+                    <i class="bi bi-key"></i> Kelola Layanan
+                </a>
+                  </a>
+                   <a href="{{ route('admin.projek.index') }}" class="@if(request()->routeIs('admin.projek.*')) active @endif">
+                    <i class="bi bi-briefcase"></i> Kelola Projek
+                </a>
+                  <a href="{{ route('admin.kontak.index') }}" class="@if(request()->routeIs('admin.kontak.*')) active @endif">
+                    <i class="bi bi-inbox"></i> Kelola Pesan
                 </a>
                 <hr style="border-color: rgba(255,255,255,0.2)">
                 <form action="{{ route('logout') }}" method="POST" style="padding: 0;">
